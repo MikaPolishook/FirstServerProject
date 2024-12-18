@@ -3,6 +3,9 @@
   static void Main()
   {
     int port = 5000;
+    string[] usernames = [];
+    string[] passwords = [];
+    string[] ids = [];
 
     var server = new Server(port);
 
@@ -30,16 +33,60 @@
       {
         try
         {
-          /*──────────────────────────────────╮
-          │ Handle your custome requests here │
-          ╰──────────────────────────────────*/
-          response.SetStatusCode(405);
+          if (request.Path == "signup")
+          {
+            (string username, string password) = request.GetBody<(string, string)>();
+            usernames = [.. usernames, username];
+            passwords = [.. passwords, password];
+            string id = Guid.NewGuid().ToString();
+            ids = [.. ids, id];
+            Console.WriteLine(username + "," + password);
+            response.Send(id);
+          }
+
+          else if (request.Path == "login")
+          {
+            (string username, string password) = request.GetBody<(string, string)>();
+
+            bool founduser = false;
+            string userId = "";
+
+            for (int i = 0; i < usernames.Length; i++)
+            {
+              if (username == usernames[i] && password == passwords[i])
+              {
+                founduser = true;
+                userId = ids[i];
+              }
+            }
+
+            response.Send((founduser, userId));
+          }
+
+          else if (request.Path == "getUsername")
+          {
+            string userId = request.GetBody<string>();
+
+            int i = 0;
+            while (ids[i] != userId)
+            {
+              i++;
+            }
+            string username = usernames[i];
+
+            response.Send(username);
+          }
+          else
+          {
+            response.SetStatusCode(405);
+          }
         }
         catch (Exception exception)
         {
           Log.WriteException(exception);
         }
       }
+
 
       response.Close();
     }
