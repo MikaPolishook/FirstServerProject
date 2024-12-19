@@ -6,5 +6,5 @@ let SignUpButton = document.querySelector("#SignUpButton")! as HTMLButtonElement
 
 SignUpButton.onclick = async function () {
     let userId = await send("signup" , [UsernameInput.value, PasswordInput.value]) as string;
-    localStorage.setItem("userId", userId)
+    localStorage.setItem("userId", userId);
   }

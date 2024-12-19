@@ -3,13 +3,88 @@
 
 <head>
   <title>Index Page</title>
+   <style>
+
+     .Titles {
+      text-align: center;
+     }
+
+      
+      .gallery {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.Types {
+    text-align: center;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: solid;
+}
+
+.text {
+    display: block; /* הופך את הטקסט לקישור בלוק */
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none; /* מסיר קו תחתון */
+}
+
+.text:hover {
+    color: #007bff; /* צובע טקסט בעת ריחוף */
+    text-decoration: underline; /* קו תחתון בעת ריחוף */
+}
+
+   </style>
 </head>
 
 <body>
-  <h1>The main page of the website</h1>
 
   <a href="\website\pages\signup.html"><button id="SignUpPage">Sign Up</button></a>
   <a href="\website\pages\login.html"><button id="LoginPage">Log In</button></a>
-</body>
+
+  <div class="Titles">
+        <h1>World Of Dance</h1>
+        <h2>Types Of Dance</h2>
+  </div>
+
+
+  <div class="gallery">
+
+     <div class="Types">
+        <img src="https://www.kindpng.com/picc/m/162-1624582_ballet-dancer-silhouette-symbol-clip-art-transparent-background.png" class="image" width="250">
+        <a href="ballet.html" class="text">Ballet</a>
+     </div>
+     
+     <div class="Types">
+       <img  src="https://t4.ftcdn.net/jpg/06/05/46/41/360_F_605464194_fy6ITfpdVbG8RB2wxnhtENwUji07N47g.jpg" class="image" width="200">
+       <a href="hiphop.html" class="text">Hip Hop</a>
+     </div>
+
+     <div class="Types">
+       <img src="https://www.clipartbest.com/cliparts/Kin/X8L/KinX8LxpT.jpg" class="image" width="200">
+       <a href="modern.html" class="text">Modern Dance</a>
+     </div>
+
+     <div class="Types">
+       <img src="https://www.pngitem.com/pimgs/m/499-4999845_dance-clipart-jazz-dance-tap-dancer-silhouette-clip.png" class="image" width="200">
+       <a href="jazz.html" class="text">Jazz Dance</a>
+     </div>
+
+     <div class="Types">
+       <img src="https://clipart-library.com/new_gallery/7-71318_couple-silhouette-folk-dancer-silhouette-png.png" class="image" width="200">
+       <a href="folk.html" class="text">Folk Dancing</a>
+     </div>
+
+    </div>
+
+    </body>
 
 </html>

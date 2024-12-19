@@ -33,7 +33,7 @@
       {
         try
         {
-          if (request.Path == "signup")
+          if (request.Path == "signup" )
           {
             (string username, string password) = request.GetBody<(string, string)>();
             usernames = [.. usernames, username];
