@@ -3,14 +3,17 @@
   static void Main()
   {
     int port = 5000;
-    string[] usernames = [];
-    string[] passwords = [];
-    string[] ids = [];
+
+    User[] users = [];
+
+
 
     var server = new Server(port);
 
     Console.WriteLine("The server is running");
     Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/index.html");
+
+
 
     while (true)
     {
@@ -33,13 +36,13 @@
       {
         try
         {
-          if (request.Path == "signup" )
+          if (request.Path == "signup")
           {
             (string username, string password) = request.GetBody<(string, string)>();
-            usernames = [.. usernames, username];
-            passwords = [.. passwords, password];
             string id = Guid.NewGuid().ToString();
-            ids = [.. ids, id];
+
+            users = [..users, new User(username, password, id)];
+
             Console.WriteLine(username + "," + password);
             response.Send(id);
           }
@@ -51,12 +54,12 @@
             bool founduser = false;
             string userId = "";
 
-            for (int i = 0; i < usernames.Length; i++)
+            for (int i = 0; i < users.Length; i++)
             {
-              if (username == usernames[i] && password == passwords[i])
+              if (username == users[i].username && password == users[i].password)
               {
                 founduser = true;
-                userId = ids[i];
+                userId = users[i].id;
               }
             }
 
@@ -68,11 +71,11 @@
             string userId = request.GetBody<string>();
 
             int i = 0;
-            while (ids[i] != userId)
+            while (users[i].id != userId)
             {
               i++;
             }
-            string username = usernames[i];
+            string username = users[i].username;
 
             response.Send(username);
           }
@@ -90,5 +93,21 @@
 
       response.Close();
     }
+  }
+}
+
+class User
+{
+  public string username;
+  public string password;
+  public string id;
+  public bool[] favorites;
+
+  public User(string username, string password, string id)
+  {
+    this.username = username;
+    this.password = password;
+    this.id = id;
+    this.favorites = [false, false, false, false, false];
   }
 }
