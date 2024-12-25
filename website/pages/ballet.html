@@ -3,11 +3,59 @@
     <head>
    <style>
 
+    #Title {
+     border-bottom: 1px solid black;
+    }
+
+    .ExplainBallet {
+      font-style: italic;
+      border-style: dotted;
+      border-color: black;
+      height:fit-content;
+      width:fit-content;
+      background-color: pink;
+    }
+    
+    .PicturesContainer {
+      display: flex; /*מסדר בשורה*/
+      justify-content: center; 
+      gap: 10px; /* רווחים בין התמונות*/
+    }
+
+
+    .Pictures {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: solid;
+    }
 
 
    </style>
     </head>
     <body>
-  <h1>Ballet</h1>
+
+  <h1 id="Title">Ballet</h1>
+
+   <div class="ExplainBallet">
+      <br>
+      <div>Ballet is a type of performance dance that originated during the Italian Renaissance in the fifteenth century and later developed into a concert dance form in France and Russia.</div>
+      <br>
+      <div>It has since become a widespread and highly technical form of dance with its own vocabulary.</div>
+      <br>
+      <div>Ballet has been influential globally and has defined the foundational techniques which are used in many other dance genres and cultures.</div>
+      <br>
+      <div>Various schools around the world have incorporated their own cultures. </div>
+      <br>
+      <div>As a result, ballet has evolved in distinct ways.</div>
+      <br>
+   </div>
+
+   <div class="PicturesContainer">
+    <img src="https://media.istockphoto.com/id/1861010855/photo/full-length-shot-of-a-ballerina-dancing-and-leaning-backwards.jpg?s=612x612&w=0&k=20&c=UbuYC3wOp9-V67SBYzZCjdExrMYMRdHJYjGE4Y-492o=" class="Pictures" >
+    <img src="https://live-production.wcms.abc-cdn.net.au/7bd2a08535ddd08135a5e06aca7ea45b?impolicy=wcms_crop_resize&cropH=1922&cropW=2883&xPos=59&yPos=0&width=862&height=575" class="Pictures" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGHaBRvhk8oP8nlTzKWHLl9nxxUxZ3UF43KA&s" class="Pictures" >
+   </div>
+
     </body>
 </html>

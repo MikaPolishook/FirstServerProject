@@ -79,6 +79,14 @@
 
             response.Send(username);
           }
+
+          else if (request.Path =="favorite") 
+          {
+            
+          }
+
+
+
           else
           {
             response.SetStatusCode(405);
