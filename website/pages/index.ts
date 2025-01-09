@@ -8,10 +8,10 @@ for (let i = 0; i < checks.length; i++) {
 
     checks[i].onchange = function() {
       if (checks[i].checked) {
-        send("addToFavorite", [i, userId , checks[i].checked]); 
+        send("addToFavorite", [i, userId]); 
       }
       else {
-        send("removeFromFavorites", [userId, checks[i].checked]);
+        send("removeFromFavorites", [i, userId]);
       }
     }
 }

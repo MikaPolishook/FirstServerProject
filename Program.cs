@@ -80,11 +80,39 @@
             response.Send(username);
           }
 
-          else if (request.Path =="favorite") 
+          else if (request.Path =="addToFavorite") 
           {
-            
+            (int i, string userId) = request.GetBody<(int, string)>();
+
+            User user = default!;
+            for (int j = 0; j < users.Length; j++)
+            {
+              if (userId == users[j].id)
+              {
+                user = users[j];
+              }
+            }
+
+            user.favorites[i] = true;
           }
 
+
+          else if (request.Path == "removeFromFavorites") 
+          {
+             (int i, string userId) = request.GetBody<(int, string)>();
+
+            User user = default!;
+            for (int j = 0; j < users.Length; j++)
+            {
+              if (userId == users[j].id)
+              {
+                user = users[j];
+              }
+            }
+
+            
+               user.favorites[i] = false;
+          }
 
 
           else
