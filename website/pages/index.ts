@@ -8,7 +8,7 @@ for (let i = 0; i < checks.length; i++) {
 
     checks[i].onchange = function() {
       if (checks[i].checked) {
-        send("addToFavorite", [i, userId]); 
+        send("addToFavorites", [i, userId]); 
       }
       else {
         send("removeFromFavorites", [i, userId]);

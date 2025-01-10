@@ -80,7 +80,7 @@
             response.Send(username);
           }
 
-          else if (request.Path =="addToFavorite") 
+          else if (request.Path =="addToFavorites") 
           {
             (int i, string userId) = request.GetBody<(int, string)>();
 
@@ -111,7 +111,23 @@
             }
 
             
-               user.favorites[i] = false;
+            user.favorites[i] = false;
+          }
+
+          else if (request.Path == "getfavorite") 
+          {
+            string userId = request.GetBody<string>();
+            
+             User user = default!;
+            for (int j = 0; j < users.Length; j++)
+            {
+              if (userId == users[j].id)
+              {
+                user = users[j];
+              }
+            }
+
+            response.Send(user.favorites);
           }
 
 
