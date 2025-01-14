@@ -2,20 +2,56 @@
 <html>
     <head>
         <style>
-            .dance {
-                display: none;
+
+            #Title {
+                font-style: italic;
             }
+
+            .dance {
+                font-size: x-large;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 10px;
+                font-size: 16px;
+                color: black;
+                text-decoration: none; /* מסיר קו תחתון */
+                cursor: pointer;
+                align-items: flex-start;
+            }
+
+            .dance:hover {
+                color:darksalmon; /* צובע טקסט בריחוף */
+                text-decoration: underline; /* קו תחתון בריחוף */
+            }
+
+            .dance img {
+                width: 100px; /* שינוי רוחב לכל התמונות */
+                height: auto; /* שומר על פרופורציות לכל התמונות */
+                margin-top: 10px;
+                margin-right: 5px;
+                border: 2px solid black;
+                border-radius: 50%;
+            
+            }
+
+
+            
         </style>
     </head>
 
     <body>
-        <script type="module" src="Favorite.js"></script>
+         
+        <h1 id="Title"> Your Favorites:) </h1>
+        <div class="dance" onclick="window.location.href='ballet.html'"><img src="https://www.kindpng.com/picc/m/162-1624582_ballet-dancer-silhouette-symbol-clip-art-transparent-background.png"> Ballet Dance </div>
+        <div class="dance" onclick="window.location.href='hiphop.html'" ><img src="https://t4.ftcdn.net/jpg/06/05/46/41/360_F_605464194_fy6ITfpdVbG8RB2wxnhtENwUji07N47g.jpg"> HipHop Dance</div>
+        <div class="dance" onclick="window.location.href='modern.html'"> <img src="https://www.clipartbest.com/cliparts/Kin/X8L/KinX8LxpT.jpg"> Modern Dance</div>
+        <div class="dance" onclick="window.location.href='jazz.html'"> <img src="https://www.pngitem.com/pimgs/m/499-4999845_dance-clipart-jazz-dance-tap-dancer-silhouette-clip.png"> Jazz Dance</div>
+        <div class="dance" onclick="window.location.href='folk.html'"> <img src="https://clipart-library.com/new_gallery/7-71318_couple-silhouette-folk-dancer-silhouette-png.png"> Folk Dance</div>
 
-        <div class="dance" >Ballet Dance</div>
-        <div class="dance" >HipHop Dance</div>
-        <div class="dance" >Modern Dance</div>
-        <div class="dance" >Jazz Dance</div>
-        <div class="dance" >Folk Dance</div>
+        
+        <script type="module" src="Favorite.js"></script>
 
     </body>
 

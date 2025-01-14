@@ -17,3 +17,4 @@ for (let i = 0; i < Favorite.length; i++) {
         dances[i].style.display = "block";
     }
 }
+
