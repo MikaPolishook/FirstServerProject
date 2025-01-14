@@ -41,22 +41,22 @@
             (string username, string password) = request.GetBody<(string, string)>();
             string id = Guid.NewGuid().ToString();
 
-            users = [..users, new User(username, password, id)];
+            users = [..users, new User(username, password, id)]; //* עדכון למערך של משתמש חדש המכיל דברים שייחודיים לו *//
 
             Console.WriteLine(username + "," + password);
             response.Send(id);
-          }
+          }  //*רישום משתמש חדש, שומר את פרטי המשתמש (שם משתמש, סיסמה) ומחזיר מזהה ייחודי עבור המשתמש החדש.*//
 
           else if (request.Path == "login")
           {
             (string username, string password) = request.GetBody<(string, string)>();
 
             bool founduser = false;
-            string userId = "";
+            string userId = ""; //*יועד לשמור את המזהה של המשתמש במידה והמשתמש נמצא במערכת.//*
 
             for (int i = 0; i < users.Length; i++)
             {
-              if (username == users[i].username && password == users[i].password)
+              if (username == users[i].username && password == users[i].password) //*השוואה בין שם המשתמש והסיסמה שהוזנו לאלה של כל משתמש במערך.*//
               {
                 founduser = true;
                 userId = users[i].id;
@@ -64,21 +64,22 @@
             }
 
             response.Send((founduser, userId));
-          }
+          } //*כניסת משתמש למערכת על ידי השוואת שם המשתמש והסיסמה שהוזנו לאלה של המשתמשים במערכת, ואם יש התאמה, מחזיר את המזהה של המשתמש.*//
 
-          else if (request.Path == "getUsername")
-          {
-            string userId = request.GetBody<string>();
 
-            int i = 0;
-            while (users[i].id != userId)
-            {
-              i++;
-            }
-            string username = users[i].username;
+         // else if (request.Path == "getUsername")
+         // {
+          //  string userId = request.GetBody<string>();
 
-            response.Send(username);
-          }
+          //  int i = 0;
+          //  while (users[i].id != userId)
+          //  {
+           //   i++;
+          //  }
+          //  string username = users[i].username;
+
+           // response.Send(username);
+          //} 
 
           else if (request.Path =="addToFavorites") 
           {
@@ -128,7 +129,7 @@
             }
 
             response.Send(user.favorites);
-          }
+          } 
 
 
           else
