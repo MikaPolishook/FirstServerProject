@@ -1,15 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <h1>LOGIN</h1>
-        <div>Username:</div>
-        <input id="UsernameInput">
-        <div>Password:</div>
-        <input id="PasswordInput">
-        <br>
+    <head>
+        <style>
 
-        <button id="LoginButton">Log In</button>
+             body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin:0;
+                background-color: #f9f9f9;
+            }
+
+            .Text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding:  20px;
+                border: 2px solid black;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                max-width: 350px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            table {
+                width: 100%;
+                padding: 0;
+                margin: 0 auto;
+            }
+
+            td {
+                padding: 10px 0;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background-color: bisque;
+                color: black;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: burlywood;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 1px;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+
+    <div class="Text">
+
+
+        <h1>LOGIN</h1>
+
+        <table>
+
+            <tr>
+       <td> <div>Username:</div>  </td>
+       <td>  <input id="UsernameInput">  </td>
+            </tr>
+
+     <br>
+     <br>
+
+            <tr>
+        <td> <div>Password:</div> </td>
+        <td> <input id="PasswordInput"> </td>
+            </tr>
+
+     <br>
+     <br>
+
+            <tr>
+        <td> <button id="LoginButton">Log In</button> </td>
+            </tr>
+
+        </table>
+
+    </div>
      
 
         <script type="module" src="login.js"></script>
